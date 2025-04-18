@@ -5,6 +5,7 @@ import { CourseOverviewComponent } from './components/course-overview/course-ove
 import { InstructorComponent } from './components/instructor/instructor.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EnrollmentComponent } from './components/enrollment/enrollment.component';
+import { WelcomeHeaderComponent } from './components/welcome-header/welcome-header.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { EnrollmentComponent } from './components/enrollment/enrollment.componen
     CourseOverviewComponent,
     InstructorComponent,
     DashboardComponent,
-    EnrollmentComponent
+    EnrollmentComponent,
+    WelcomeHeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

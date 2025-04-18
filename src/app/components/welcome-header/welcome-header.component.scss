@@ -1,0 +1,60 @@
+@use "@angular/material" as mat;
+
+.welcome-container {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  width: 100%;
+  
+  /* Using your exact theme variables */
+  background: var(--surface-container);
+  
+  /* For even darker background, use one of these: */
+  /* background: var(--surface-container-high); */
+  /* background: var(--surface-container-highest); */
+  
+  .welcome-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .welcome-text {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--on-surface);
+    margin: 0;
+    padding: 0;
+
+    .journey-text {
+      font-weight: 600;
+      color: var(--primary);
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+/* Dark mode adjustments */
+.dark .welcome-container {
+  background: var(--surface-container-highest);
+  
+  .welcome-text {
+    color: var(--on-surface);
+    
+    .journey-text {
+      color: var(--primary-fixed-dim);
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 2rem 1rem;
+    
+    .welcome-text {
+      font-size: 2rem;
+    }
+  }
+}
