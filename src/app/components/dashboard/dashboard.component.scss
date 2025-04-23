@@ -1,0 +1,78 @@
+@use "@angular/material" as mat;
+@import '../../theme/custom-theme.scss';
+
+.dashboard-section {
+  padding: 3rem;
+  background-color: #141314; // dark theme background
+  border-top: 1px solid #47464c; // dark theme outline-variant
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #c8bfff; // dark theme primary
+}
+
+.section-description {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  color: #c9c5cc; // dark theme on-surface-variant
+}
+
+.dashboard-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  background-color: #201f20; // dark theme surface-container
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #47464c; // dark theme outline-variant
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(200, 191, 255, 0.2); // primary color
+  }
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #e5e1e2; // dark theme on-background
+}
+
+.feature-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #c9c5cc; // dark theme on-surface-variant
+}
+
+.dashboard-overview, .resource-library {
+  margin-bottom: 2rem;
+}
+
+.overview-title, .library-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #e5e1e2; // dark theme on-background
+}
+
+.overview-description, .library-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  color: #c9c5cc; // dark theme on-surface-variant
+}
+
+@media (max-width: 768px) {
+  .dashboard-features {
+    grid-template-columns: 1fr;
+  }
+}

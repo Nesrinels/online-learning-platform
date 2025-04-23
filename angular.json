@@ -92,6 +92,7 @@
               }
             ],
             "styles": [
+              "src/app/theme/custom-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []

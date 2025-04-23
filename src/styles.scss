@@ -18,3 +18,64 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Global button styles */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Global heading styles */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+/* Global section styles */
+section {
+  padding: 3rem;
+}
+
+/* Global component animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Global media queries */
+@media (max-width: 768px) {
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 1.5rem;
+  }
+}
+

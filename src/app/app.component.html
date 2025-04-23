@@ -337,6 +337,9 @@
 <router-outlet></router-outlet>  <!-- For routing (if needed) -->
 
 <!-- Example usage of components -->
+<button mat-icon-button class="theme-toggle" (click)="toggleTheme()">
+  <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
+</button>
 <app-welcome-header></app-welcome-header>
 <app-course-overview></app-course-overview>
 <app-instructor></app-instructor>
