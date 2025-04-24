@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-enrollment',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-    <section class="enrollment-section">
+    <section class="enrollment-section" [class.dark-theme]="themeService.isDarkTheme$ | async">
       <h2 class="section-title">Enrollment Information</h2>
       <p class="section-description">Explore the details on how to enroll in the course, including pricing and registration process.</p>
       
@@ -26,4 +29,6 @@ import { Component } from '@angular/core';
   `,
   styleUrl: './enrollment.component.scss'
 })
-export class EnrollmentComponent {}
+export class EnrollmentComponent {
+  constructor(public themeService: ThemeService) {}
+}

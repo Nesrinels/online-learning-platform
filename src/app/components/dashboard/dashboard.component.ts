@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-    <section class="dashboard-section">
+    <section class="dashboard-section"[class.dark-theme]="themeService.isDarkTheme$ | async">
       <h2 class="section-title">Dashboard Overview</h2>
       <p class="section-description">Explore the interactive dashboard designed to enhance your learning experience.</p>
       
@@ -39,4 +41,6 @@ import { Component } from '@angular/core';
   `,
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  constructor(public themeService: ThemeService) {}
+}

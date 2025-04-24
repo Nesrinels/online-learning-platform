@@ -24,7 +24,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 500px;
+  max-width: 45%; 
+  padding-right: 2rem; 
 }
 
 .welcome-text {
@@ -109,29 +110,28 @@
 .illustration-section {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; 
   align-items: center;
+  padding: 1rem;
+  min-width: 50%; 
 }
 
-.illustration-placeholder {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+
+.illustration-image {
+  width: 100%; 
+  max-width: 600px; 
+  height: auto; 
+  max-height: 400px; 
+  object-fit: contain;
   border-radius: 8px;
   transition: all 0.3s ease;
-  
+
   // Light theme
-  background-color: #ebe7e8;
-  color: #79767c;
-  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
   // Dark theme
   .dark-theme & {
-    background-color: #2b2a2a;
-    color: #938f95;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -141,6 +141,18 @@
   }
   
   .welcome-content {
+    max-width: 100%; 
+    padding-right: 0;
     margin-bottom: 2rem;
   }
+
+  .illustration-section {
+    min-width: 100%; 
+    justify-content: center; 
+  
+  .illustration-image {
+    max-width: 100%; 
+    max-height: 300px; 
+  }
+}
 }

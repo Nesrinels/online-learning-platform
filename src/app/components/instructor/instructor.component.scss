@@ -3,37 +3,44 @@
 
 .instructor-section {
   padding: 3rem;
-  background-color: #141314; // dark theme background
-  border-top: 1px solid #47464c; // dark theme outline-variant
+  transition: all 0.3s ease;
+  
+  // Light theme defaults
+  background-color: #fdf8f9;
+  
+  // Dark theme overrides
+  &.dark-theme {
+    background-color: #141314;
+  }
 }
 
 .section-title {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #c8bfff; // dark theme primary
+  transition: color 0.3s ease;
+  
+  // Light theme
+  color: #5c46d1;
+  
+  // Dark theme
+  .dark-theme & {
+    color: #c8bfff;
+  }
 }
 
 .section-description {
   font-size: 1rem;
   margin-bottom: 2.5rem;
   max-width: 800px;
-  color: #c9c5cc; // dark theme on-surface-variant
-}
-
-.instructor-details {
-  position: relative;
-  padding-top: 2rem;
+  transition: color 0.3s ease;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 1.5rem;
-    width: calc(100% - 3rem);
-    height: 2px;
-    background-color: #47464c; // dark theme outline-variant
-    z-index: 0;
+  // Light theme
+  color: #47464c;
+  
+  // Dark theme
+  .dark-theme & {
+    color: #c9c5cc;
   }
 }
 
@@ -51,24 +58,49 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: #c8bfff; // dark theme primary
-  color: #2c009d; // dark theme on-primary
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 600;
   z-index: 1;
+  transition: all 0.3s ease;
+  
+  // Light theme
+  background-color: #5c46d1;
+  color: #ffffff;
+  
+  // Dark theme
+  .dark-theme & {
+    background-color: #c8bfff;
+    color: #2c009d;
+  }
 }
 
 .detail-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #e5e1e2; // dark theme on-background
+  transition: color 0.3s ease;
+  
+  // Light theme
+  color: #1c1b1c;
+  
+  // Dark theme
+  .dark-theme & {
+    color: #e5e1e2;
+  }
 }
 
 .detail-description {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #c9c5cc; // dark theme on-surface-variant
+  transition: color 0.3s ease;
+  
+  // Light theme
+  color: #47464c;
+  
+  // Dark theme
+  .dark-theme & {
+    color: #c9c5cc;
+  }
 }

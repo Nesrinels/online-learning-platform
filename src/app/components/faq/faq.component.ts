@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 interface FaqItem {
   question: string;
@@ -12,7 +13,7 @@ interface FaqItem {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="faq-section">
+    <section class="faq-section" [class.dark-theme]="themeService.isDarkTheme$ | async">
       <h2 class="section-title">FAQ</h2>
       
       <div class="faq-container">
@@ -52,6 +53,8 @@ export class FaqComponent {
       isOpen: false
     }
   ];
+
+  constructor(public themeService: ThemeService) {}
 
   toggleFaq(item: FaqItem): void {
     item.isOpen = !item.isOpen;

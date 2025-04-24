@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-instructor',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-    <section class="instructor-section">
+    <section class="instructor-section" [class.dark-theme]="themeService.isDarkTheme$ | async">
       <h2 class="section-title">Instructor Introduction</h2>
       <p class="section-description">Meet our experienced course instructor who will guide you through the course with their expertise and credentials.</p>
       
@@ -26,4 +28,6 @@ import { Component } from '@angular/core';
   `,
   styleUrl: './instructor.component.scss'
 })
-export class InstructorComponent {}
+export class InstructorComponent {
+  constructor(public themeService: ThemeService) {}
+}

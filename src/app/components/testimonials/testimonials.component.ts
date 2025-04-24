@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-    <section class="testimonials-section">
+    <section class="testimonials-section" [class.dark-theme]="themeService.isDarkTheme$ | async">
       <h2 class="section-title">Student Testimonials</h2>
       <p class="section-description">Read what our previous students have to say about their experience with our online course.</p>
       
@@ -32,4 +35,6 @@ import { Component } from '@angular/core';
   `,
   styleUrl: './testimonials.component.scss'
 })
-export class TestimonialsComponent {}
+export class TestimonialsComponent {
+  constructor(public themeService: ThemeService) {}
+}
