@@ -26,13 +26,15 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/app/theme/custom-theme.scss"
             ],
             "scripts": []
           },
@@ -91,6 +93,7 @@
               }
             ],
             "styles": [
+              "src/app/theme/custom-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -98,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "29f6f92b-fbdc-4bc9-87fb-89dd8b797f26"
   }
 }

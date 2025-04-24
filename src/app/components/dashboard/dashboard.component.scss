@@ -1,0 +1,150 @@
+@use "@angular/material" as mat;
+@import '../../theme/custom-theme.scss';
+
+.dashboard-section {
+  padding: 3rem;
+  transition: all 0.3s ease;
+
+  // Light theme defaults
+  background-color: #fdf8f9;
+
+  // Dark theme overrides
+  &.dark-theme {
+    background-color: #141314;
+  }
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+
+  // Light theme
+  color: #5c46d1;
+
+  // Dark theme
+  .dark-theme & {
+    color: #c8bfff;
+  }
+}
+
+.section-description {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  transition: color 0.3s ease;
+
+  // Light theme
+  color: #47464c;
+
+  // Dark theme
+  .dark-theme & {
+    color: #c9c5cc;
+  }
+}
+
+.dashboard-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  // Light theme
+  background-color: #ffffff;
+  border: 1px solid #c9c5cc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  // Dark theme
+  .dark-theme & {
+    background-color: #201f20;
+    border: 1px solid #47464c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+
+    // Light theme hover
+    box-shadow: 0 5px 15px rgba(92, 70, 209, 0.2);
+
+    // Dark theme hover
+    .dark-theme & {
+      box-shadow: 0 5px 15px rgba(200, 191, 255, 0.2);
+    }
+  }
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+
+  // Light theme
+  color: #1c1b1c;
+
+  // Dark theme
+  .dark-theme & {
+    color: #e5e1e2;
+  }
+}
+
+.feature-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+
+  // Light theme
+  color: #47464c;
+
+  // Dark theme
+  .dark-theme & {
+    color: #c9c5cc;
+  }
+}
+
+.dashboard-overview, .resource-library {
+  margin-bottom: 2rem;
+}
+
+.overview-title, .library-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+
+  // Light theme
+  color: #1c1b1c;
+
+  // Dark theme
+  .dark-theme & {
+    color: #e5e1e2;
+  }
+}
+
+.overview-description, .library-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  transition: color 0.3s ease;
+
+  // Light theme
+  color: #47464c;
+
+  // Dark theme
+  .dark-theme & {
+    color: #c9c5cc;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-features {
+    grid-template-columns: 1fr;
+  }
+}

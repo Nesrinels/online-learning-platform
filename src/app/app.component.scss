@@ -1,0 +1,72 @@
+.app-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  
+    // Light theme defaults
+    color: #1c1b1c;
+    background-color: #fdf8f9;
+  
+    // Dark theme overrides
+    &.dark-theme {
+      color: #e5e1e2;
+      background-color: #141314;
+    }
+  }
+  
+  .theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    // Light theme defaults
+    color: #5c46d1;
+    background: rgba(92, 70, 209, 0.1);
+    
+    // Dark theme overrides
+    .dark-theme & {
+      color: #c8bfff;
+      background: rgba(200, 191, 255, 0.1);
+    }
+  
+    &:hover {
+      transform: scale(1.1);
+      
+      // Light theme hover
+      background: rgba(92, 70, 209, 0.2);
+      
+      // Dark theme hover
+      .dark-theme & {
+        background: rgba(200, 191, 255, 0.2);
+      }
+    }
+  
+    .mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  .main-footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    
+    // Light theme defaults
+    background-color: #f1eded;
+    color: #47464c;
+    border-top: 1px solid #c9c5cc;
+    
+    // Dark theme overrides
+    .dark-theme & {
+      background-color: #1c1b1c;
+      color: #c9c5cc;
+      border-top: 1px solid #47464c;
+    }
+  }
