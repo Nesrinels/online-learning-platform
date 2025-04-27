@@ -2,9 +2,9 @@
 @import '../../theme/custom-theme.scss';
 
 .overview-section {
-  padding: 3rem;
+  padding: 5rem 1.5rem;
   transition: all 0.3s ease;
-
+  
   // Light theme defaults
   background-color: #fdf8f9;
   color: #1c1b1c;
@@ -17,9 +17,10 @@
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
   transition: color 0.3s ease;
 
   // Light theme
@@ -32,8 +33,13 @@
 }
 
 .section-description {
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
   transition: color 0.3s ease;
 
   // Light theme
@@ -48,12 +54,15 @@
 .features-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .feature-card {
-  padding: 1.5rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
   transition: all 0.3s ease;
   
   // Light theme
@@ -84,7 +93,7 @@
 .feature-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   transition: color 0.3s ease;
 
   // Light theme
@@ -97,7 +106,7 @@
 }
 
 .feature-description {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   transition: color 0.3s ease;
 
@@ -110,7 +119,16 @@
   }
 }
 
+// Add media queries similar to instructor component
 @media (max-width: 768px) {
+  .overview-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
   .features-container {
     grid-template-columns: 1fr;
   }

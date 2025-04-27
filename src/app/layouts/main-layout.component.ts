@@ -24,9 +24,7 @@ import { ThemeService } from '../services/theme.service';
     InstructorComponent,
     EnrollmentComponent,
     TestimonialsComponent,
-    FaqComponent,
-    CourseOutlineComponent,
-    DashboardComponent
+    FaqComponent
   ],
   template: `
     <div class="layout-container" [class.dark-theme]="(themeService.isDarkTheme$ | async)">
@@ -36,8 +34,8 @@ import { ThemeService } from '../services/theme.service';
       <app-enrollment></app-enrollment>
       <app-testimonials></app-testimonials>
       <app-faq></app-faq>
-      <app-course-outline></app-course-outline>
-      <app-dashboard></app-dashboard>
+      <!-- <app-course-outline></app-course-outline> -->
+      <!-- <app-dashboard></app-dashboard> -->
       
       <footer class="main-footer">
         <p>&copy; 2025 Online Learning Platform. All rights reserved.</p>

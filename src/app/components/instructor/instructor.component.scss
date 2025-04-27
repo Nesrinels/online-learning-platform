@@ -2,105 +2,415 @@
 @import '../../theme/custom-theme.scss';
 
 .instructor-section {
-  padding: 3rem;
+  padding: 5rem 1.5rem;
   transition: all 0.3s ease;
-  
-  // Light theme defaults
-  background-color: #fdf8f9;
-  
-  // Dark theme overrides
+  background-color: #faf7ff;
+
   &.dark-theme {
     background-color: #141314;
   }
 }
 
+.instructor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   transition: color 0.3s ease;
-  
-  // Light theme
   color: #5c46d1;
-  
-  // Dark theme
+
   .dark-theme & {
     color: #c8bfff;
   }
 }
 
 .section-description {
-  font-size: 1rem;
-  margin-bottom: 2.5rem;
-  max-width: 800px;
+  font-size: 1.125rem;
+  max-width: 700px;
+  margin: 0 auto;
   transition: color 0.3s ease;
-  
-  // Light theme
   color: #47464c;
-  
-  // Dark theme
+
   .dark-theme & {
     color: #c9c5cc;
   }
 }
 
-.detail-card {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 4rem;
-  max-width: 600px;
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
 }
 
-.number-badge {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 600;
-  z-index: 1;
+.instructor-card {
+  border-radius: 12px;
+  overflow: hidden;
   transition: all 0.3s ease;
-  
-  // Light theme
-  background-color: #5c46d1;
-  color: #ffffff;
-  
-  // Dark theme
+  background-color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+
   .dark-theme & {
-    background-color: #c8bfff;
-    color: #2c009d;
+    background-color: #1e1e1e;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(92, 70, 209, 0.15);
+
+    .dark-theme & {
+      box-shadow: 0 15px 40px rgba(200, 191, 255, 0.15);
+    }
+    
+    .instructor-social {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
-.detail-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  transition: color 0.3s ease;
+.instructor-image-container {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.instructor-image {
+  width: 100%;
+  height: 100%;
+  background-position: center top;
+  background-size: cover;
+  transition: transform 0.5s ease;
+
   
-  // Light theme
+  .instructor-card:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.instructor-social {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: #5c46d1;
+    transform: translateY(-3px);
+    
+    .dark-theme & {
+      background-color: #c8bfff;
+      color: #141314;
+    }
+  }
+  
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+mat-card-content {
+  padding: 1.5rem;
+}
+
+.instructor-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
   color: #1c1b1c;
   
-  // Dark theme
   .dark-theme & {
     color: #e5e1e2;
   }
 }
 
-.detail-description {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  transition: color 0.3s ease;
+.instructor-title {
+  font-size: 0.95rem;
+  color: #5c46d1;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
   
-  // Light theme
+  .dark-theme & {
+    color: #c8bfff;
+  }
+}
+
+.instructor-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  
+  .dark-theme & {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5c46d1;
+  margin-bottom: 0.25rem;
+  
+  .dark-theme & {
+    color: #c8bfff;
+  }
+}
+
+.stat-label {
+  font-size: 0.75rem;
   color: #47464c;
   
-  // Dark theme
   .dark-theme & {
     color: #c9c5cc;
+  }
+}
+
+.instructor-bio {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #47464c;
+  
+  .dark-theme & {
+    color: #c9c5cc;
+  }
+}
+
+.expertise-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.expertise-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: rgba(92, 70, 209, 0.1);
+  color: #5c46d1;
+  
+  .dark-theme & {
+    background-color: rgba(200, 191, 255, 0.1);
+    color: #c8bfff;
+  }
+}
+
+mat-card-actions {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.view-courses-btn {
+  color: #5c46d1;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  
+  .dark-theme & {
+    color: #c8bfff;
+  }
+  
+  mat-icon {
+    margin-left: 0.25rem;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover mat-icon {
+    transform: translateX(4px);
+  }
+}
+
+.instructor-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  
+  .dark-theme & {
+    background-color: #1e1e1e;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(92, 70, 209, 0.15);
+    
+    .dark-theme & {
+      box-shadow: 0 15px 40px rgba(200, 191, 255, 0.15);
+    }
+    
+    .feature-icon {
+      background-color: #5c46d1;
+      color: white;
+      
+      .dark-theme & {
+        background-color: #c8bfff;
+        color: #141314;
+      }
+    }
+  }
+}
+
+.feature-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  background-color: rgba(92, 70, 209, 0.1);
+  color: #5c46d1;
+  
+  .dark-theme & {
+    background-color: rgba(200, 191, 255, 0.1);
+    color: #c8bfff;
+  }
+  
+  mat-icon {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1c1b1c;
+  
+  .dark-theme & {
+    color: #e5e1e2;
+  }
+}
+
+.feature-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #47464c;
+  
+  .dark-theme & {
+    color: #c9c5cc;
+  }
+}
+
+.cta-container {
+  text-align: center;
+  padding: 3rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5c46d1, #4328b9);
+  color: white;
+  
+  .dark-theme & {
+    background: linear-gradient(135deg, #8a7aff, #6a5acd);
+  }
+}
+
+.cta-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: white;
+  color: #5c46d1;
+  
+  .dark-theme & {
+    background-color: #141314;
+    color: #c8bfff;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .instructor-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .instructors-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .instructor-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-container {
+    padding: 2rem 1rem;
+  }
+}
+
+.dark-theme {
+  .auth-toolbar {
+    background: rgba(30, 30, 30, 0.8);
+  }
+  
+  button.mat-strocked-button {
+    border-color: currentColor;
   }
 }

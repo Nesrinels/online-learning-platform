@@ -2,6 +2,7 @@
 @import '../../theme/custom-theme.scss';
 
 .faq-section {
+  text-align: center;
   padding: 3rem;
   transition: all 0.3s ease;
 
@@ -15,15 +16,12 @@
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   transition: color 0.3s ease;
-
-  // Light theme
   color: #5c46d1;
 
-  // Dark theme
   .dark-theme & {
     color: #c8bfff;
   }
