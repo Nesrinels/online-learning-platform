@@ -1,7 +1,70 @@
 @use "@angular/material" as mat;
 @import '../../theme/custom-theme.scss';
 
+.auth-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: transparent;
+  box-shadow: none;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+
+  .theme-toggle {
+    transition: all 0.3s ease;
+    
+    // Light theme defaults
+    color: #5c46d1;
+    background: rgba(92, 70, 209, 0.1);
+    
+    // Dark theme overrides
+    .dark-theme & {
+      color: #c8bfff;
+      background: rgba(200, 191, 255, 0.1);
+    }
+  
+    &:hover {
+      transform: scale(1.1);
+      
+      // Light theme hover
+      background: rgba(92, 70, 209, 0.2);
+      
+      // Dark theme hover
+      .dark-theme & {
+        background: rgba(200, 191, 255, 0.2);
+      }
+    }
+  
+    .mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &.dark-theme {
+    background: rgba(0, 0, 0, 0.2);
+    
+    .theme-toggle {
+      color: white;
+    }
+  }
+}
+
 .welcome-container {
+  padding-top: 80px;
   display: flex;
   justify-content: space-between;
   padding: 3rem;
@@ -16,6 +79,22 @@
   &.dark-theme {
     background-color: #141314;
     color: #e5e1e2;
+  }
+}
+
+.start-button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.dark-theme{
+  .auth-toolbar{
+    background: rgba(30, 30, 30, 0.8);
+  }
+  button.mat-strocked-button {
+    border-color: currentColor;
   }
 }
 

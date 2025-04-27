@@ -1,0 +1,18 @@
+.main-footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    
+    // Light theme defaults
+    background-color: #f1eded;
+    color: #47464c;
+    border-top: 1px solid #c9c5cc;
+    
+    // Dark theme overrides
+    .dark-theme & {
+      background-color: #1c1b1c;
+      color: #c9c5cc;
+      border-top: 1px solid #47464c;
+    }
+  }
