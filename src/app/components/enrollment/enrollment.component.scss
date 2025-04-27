@@ -108,6 +108,49 @@
     color: #c9c5cc;
   }
 }
+.start-button {
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  
+  // Light theme
+  background-color: #5c46d1;
+  color: #ffffff;
+  
+  // Dark theme
+  .dark-theme & {
+    background-color: #c8bfff;
+    color: #2c009d;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    
+    // Light theme hover
+    background-color: #e5deff;
+    color: #190064;
+    
+    // Dark theme hover
+    .dark-theme & {
+      background-color: #4328b9;
+      color: #e5deff;
+    }
+  }
+}
+
+.dark-theme{
+  .auth-toolbar{
+    background: rgba(30, 30, 30, 0.8);
+  }
+  button.mat-strocked-button {
+    border-color: currentColor;
+  }
+}
 
 .price {
   font-size: 1.5rem;

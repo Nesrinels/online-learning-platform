@@ -15,13 +15,13 @@ import { CommonModule } from '@angular/common';
       <div class="testimonials-container">
         <div class="testimonial">
           <div class="user-avatar"></div>
-          <p class="testimonial-text">"I was amazed by the depth of knowledge I gained through this course. I feel more confident in my skills now."</p>
+          <p class="testimonial-text">"This course transformed my career! Landed a job within weeks."</p>
           <p class="user-name">Emily Johnson</p>
         </div>
         
         <div class="testimonial">
           <div class="user-avatar"></div>
-          <p class="testimonial-text">"The course content was engaging and well-structured. I felt like I got more than what I paid for."</p>
+          <p class="testimonial-text">"The hands-on projects were game-changers. Worth every penny!"</p>
           <p class="user-name">Michael Smith</p>
         </div>
         

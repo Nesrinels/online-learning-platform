@@ -9,14 +9,18 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <section class="enrollment-section" [class.dark-theme]="themeService.isDarkTheme$ | async">
-      <h2 class="section-title">Enrollment Information</h2>
-      <p class="section-description">Explore the details on how to enroll in the course, including pricing and registration process.</p>
+      <h2 class="section-title">Start Learning Today</h2>
+      <p class="section-description">Choose the perfect course for your career goals</p>
       
       <div class="enrollment-cards">
         <div class="enrollment-card">
-          <h3 class="card-title">Course Pricing</h3>
-          <p class="card-description">Discover the various pricing options available for the course.</p>
-          <div class="price">$99</div>
+          <h3 class="card-title">Fullstack web development </h3>
+          <p class="card-description">Begginer</p>
+          <button mat-raised-button 
+                color="primary" 
+                class="start-button">
+          Enroll Now
+        </button>
         </div>
         
         <div class="enrollment-card">
