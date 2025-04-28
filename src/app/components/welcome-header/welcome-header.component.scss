@@ -1,12 +1,120 @@
 @use "@angular/material" as mat;
 @import '../../theme/custom-theme.scss';
 
+.auth-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  
+  // Light theme defaults
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  
+  // Dark theme overrides
+  &.dark-theme {
+    background: rgba(20, 19, 20, 0.9);
+  }
+
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.3s ease;
+    
+    // Light theme defaults
+    background: rgba(92, 70, 209, 0.1);
+    color: #5c46d1;
+    
+    // Dark theme overrides
+    .dark-theme & {
+      background: rgba(200, 191, 255, 0.1);
+      color: #c8bfff;
+    }
+  
+    &:hover {
+      transform: scale(1.1);
+      
+      // Light theme hover
+      background: rgba(92, 70, 209, 0.2);
+      
+      // Dark theme hover
+      .dark-theme & {
+        background: rgba(200, 191, 255, 0.2);
+      }
+    }
+  
+    mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  .auth-buttons {
+    display: flex;
+    gap: 1rem;
+    
+    button {
+      font-weight: 500;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+    
+    // Style for stroked button (Login)
+    button.mat-stroked-button {
+      border: 1px solid;
+      
+      // Light theme
+      border-color: #5c46d1;
+      color: #5c46d1;
+      
+      // Dark theme
+      .dark-theme & {
+        border-color: #c8bfff;
+        color: #c8bfff;
+      }
+    }
+    
+    // Style for flat button (Sign Up, My Dashboard)
+    button.mat-flat-button {
+      // Light theme
+      background-color: #5c46d1;
+      color: white;
+      
+      // Dark theme
+      .dark-theme & {
+        background-color: #c8bfff;
+        color: #141314;
+      }
+    }
+  }
+}
+
 .welcome-container {
   display: flex;
   justify-content: space-between;
-  padding: 3rem;
-  min-height: 400px;
+  padding: 8rem 3rem 5rem;
+  min-height: 80vh;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 
   // Light theme defaults
   background-color: #fdf8f9;
@@ -17,6 +125,24 @@
     background-color: #141314;
     color: #e5e1e2;
   }
+  
+  // Add a subtle gradient pattern
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 10% 20%, rgba(92, 70, 209, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    
+    // Dark theme override
+    .dark-theme & {
+      background: radial-gradient(circle at 10% 20%, rgba(200, 191, 255, 0.05) 0%, transparent 60%);
+    }
+  }
 }
 
 .welcome-content {
@@ -24,12 +150,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 45%; 
+  max-width: 45%;
   padding-right: 2rem; 
+  position: relative;
+  z-index: 1;
 }
 
 .welcome-text {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -45,6 +173,7 @@
 }
 
 .journey-text {
+  display: block;
   transition: color 0.3s ease;
   
   // Light theme
@@ -57,9 +186,8 @@
 }
 
 .welcome-description {
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 2rem;
-  opacity: 0.8;
   line-height: 1.6;
   transition: color 0.3s ease;
   
@@ -74,13 +202,15 @@
 
 .start-button {
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem;
   font-weight: 600;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
+  position: relative;
+  overflow: hidden;
   
   // Light theme
   background-color: #5c46d1;
@@ -93,17 +223,38 @@
   }
   
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     
     // Light theme hover
-    background-color: #e5deff;
-    color: #190064;
+    background-color: #4a38b5;
     
     // Dark theme hover
     .dark-theme & {
-      background-color: #4328b9;
-      color: #e5deff;
+      background-color: #d9d2ff;
     }
+  }
+  
+  // Add ripple effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.6s, height 0.6s, opacity 0.6s;
+  }
+  
+  &:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    transition: 0s;
   }
 }
 
@@ -112,10 +263,9 @@
   display: flex;
   justify-content: flex-end; 
   align-items: center;
-  padding: 1rem;
-  min-width: 50%; 
+  position: relative;
+  z-index: 1;
 }
-
 
 .illustration-image {
   width: 100%; 
@@ -123,36 +273,75 @@
   height: auto; 
   max-height: 400px; 
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
   transition: all 0.3s ease;
+  animation: float 6s ease-in-out infinite;
 
   // Light theme
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(92, 70, 209, 0.15);
 
   // Dark theme
   .dark-theme & {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .welcome-content {
+    max-width: 50%;
+  }
+  
+  .welcome-text {
+    font-size: 2.8rem;
   }
 }
 
 @media (max-width: 768px) {
+  .auth-toolbar {
+    padding: 0.75rem 1rem;
+  }
+  
   .welcome-container {
     flex-direction: column;
+    padding: 6rem 1.5rem 3rem;
+    min-height: auto;
   }
   
   .welcome-content {
     max-width: 100%; 
     padding-right: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .welcome-text {
+    font-size: 2.2rem;
+  }
+  
+  .start-button {
+    align-self: center;
   }
 
   .illustration-section {
     min-width: 100%; 
     justify-content: center; 
+  }
   
   .illustration-image {
     max-width: 100%; 
     max-height: 300px; 
+    animation: none;
   }
-}
 }
